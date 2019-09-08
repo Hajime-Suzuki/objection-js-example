@@ -1,6 +1,10 @@
-import { BaseModel } from '../../database/knex'
 import { CustomersTableName, OrdersTableName } from '../../database/config'
 import { Order } from '../orders/model'
+import { BaseModel } from '../../database/BaseModel'
+
+export const CustomerRelations = {
+  orders: 'orders'
+}
 
 export class Customer extends BaseModel {
   id: number
@@ -15,7 +19,7 @@ export class Customer extends BaseModel {
 
   static get relationMappings() {
     return {
-      [OrdersTableName]: {
+      [CustomerRelations.orders]: {
         relation: BaseModel.HasManyRelation,
         modelClass: Order,
         join: {

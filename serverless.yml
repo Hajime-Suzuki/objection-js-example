@@ -26,3 +26,10 @@ functions:
       - http:
           path: /customers
           method: post
+
+  getOrderById:
+    handler: src/services/orders/handlers.getById
+    events:
+      - http:
+          path: /orders/{id}
+          method: get

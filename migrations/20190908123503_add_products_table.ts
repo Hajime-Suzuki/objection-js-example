@@ -6,6 +6,7 @@ export const up = async (knex: Knex): Promise<any> => {
   await knex.schema.createTable(ProductsTableName, table => {
     table.increments('id').primary()
     table.decimal('price').notNullable()
+    table.integer('stock').defaultTo(20)
     table.text('description').notNullable()
     table
       .timestamp('created_at')

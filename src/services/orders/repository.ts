@@ -1,11 +1,13 @@
-import { CustomersTableName } from '../../database/config'
-import { Order } from './model'
+import { Order, OrderRelations } from './model'
 
 class OrderRepository {
   async findById(id: string | number): Promise<Order | null> {
     const order = await Order.query()
       .findById(id)
-      .eager(CustomersTableName)
+      .eager({
+        [OrderRelations.products]: true,
+        [OrderRelations.customer]: true
+      })
     return order || null
   }
   create(data: Partial<Order>) {

@@ -1,5 +1,5 @@
 import * as Knex from 'knex'
-import { knexSnakeCaseMappers, Model } from 'objection'
+import { knexSnakeCaseMappers } from 'objection'
 
 export const knex = Knex({
   client: 'pg',
@@ -9,10 +9,3 @@ export const knex = Knex({
     'postgres://postgres:secret@localhost:5432/postgres',
   ...knexSnakeCaseMappers()
 })
-
-Model.knex(knex)
-
-export class BaseModel extends Model {
-  createdAt: Date
-  updatedAt?: Date | null
-}
