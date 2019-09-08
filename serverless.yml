@@ -1,0 +1,28 @@
+service: objection-js-example
+
+provider:
+  region: 'eu-central-1'
+  name: aws
+  runtime: nodejs10.x
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    port: 4000
+
+functions:
+  getCustomer:
+    handler: src/customers/handlers.get
+    events:
+      - http:
+          path: /customers/{id}
+          method: get
+  createCustomer:
+    handler: src/customers/handlers.create
+    events:
+      - http:
+          path: /customers
+          method: post

@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "ES2015",
+    "types": ["node"],
+    "outDir": ".build",
+    "rootDir": "./"
+  },
+  "include": ["src/", "migrations/"],
+  "exclude": ["node_modules/"]
+}
