@@ -1,5 +1,5 @@
 import { BaseModel } from '../database/knex'
-import { CustomerTableName } from '../database/config'
+import { CustomersTableName } from '../database/config'
 
 export class Customer extends BaseModel {
   id: number
@@ -11,6 +11,6 @@ export class Customer extends BaseModel {
   updatedAt?: Date | null
 
   static get tableName() {
-    return CustomerTableName
+    return CustomersTableName
   }
 }

@@ -9,7 +9,9 @@
   "scripts": {
     "dev": "serverless offline start",
     "invoke": "serverless invoke local -f $FUNC --watch",
-    "getCustomer": "FUNC=getCustomer yarn invoke"
+    "getCustomer": "FUNC=getCustomer yarn invoke",
+    "seed": "knex seed:run",
+    "migrate": "knex migrate:latest"
   },
   "devDependencies": {
     "@types/node": "^12.7.4",

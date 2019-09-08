@@ -15,6 +15,6 @@
     "outDir": ".build",
     "rootDir": "./"
   },
-  "include": ["src/", "migrations/"],
+  "include": ["src/", "migrations/", "seeds"],
   "exclude": ["node_modules/"]
 }
