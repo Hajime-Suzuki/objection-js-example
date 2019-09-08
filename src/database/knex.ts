@@ -12,4 +12,7 @@ export const knex = Knex({
 
 Model.knex(knex)
 
-export class BaseModel extends Model {}
+export class BaseModel extends Model {
+  createdAt: Date
+  updatedAt?: Date | null
+}

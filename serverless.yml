@@ -15,13 +15,13 @@ custom:
 
 functions:
   getCustomer:
-    handler: src/customers/handlers.get
+    handler: src/services/customers/handlers.get
     events:
       - http:
           path: /customers/{id}
           method: get
   createCustomer:
-    handler: src/customers/handlers.create
+    handler: src/services/customers/handlers.create
     events:
       - http:
           path: /customers

@@ -1,4 +1,4 @@
-import { ProductsTable, ProductOrderTableName } from '../src/database/config'
+import { ProductOrderTableName } from '../src/database/config'
 import Knex = require('knex')
 
 export const seed = async (knex: Knex): Promise<any> => {

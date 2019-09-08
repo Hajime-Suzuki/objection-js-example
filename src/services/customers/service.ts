@@ -1,5 +1,5 @@
-import { GatewayEvent } from '../libs/types'
-import { Customer } from './customer'
+import { GatewayEvent } from '../../libs/types'
+import { Customer } from './model'
 import { customerRepository } from './repository'
 
 type CreateCustomerEventBody = Pick<

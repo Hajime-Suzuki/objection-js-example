@@ -1,9 +1,9 @@
-import { ProductsTable } from '../src/database/config'
+import { ProductsTableName } from '../src/database/config'
 import Knex = require('knex')
 
 export const seed = async (knex: Knex): Promise<any> => {
-  await knex(ProductsTable).del()
-  await knex(ProductsTable).insert([
+  await knex(ProductsTableName).del()
+  await knex(ProductsTableName).insert([
     {
       id: 1,
       price: 10.0,
