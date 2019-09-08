@@ -13,13 +13,15 @@ export class Customer extends BaseModel {
     return CustomersTableName
   }
 
-  static relationMappings = {
-    [OrdersTableName]: {
-      relation: BaseModel.HasManyRelation,
-      modelClass: Order,
-      join: {
-        from: `${CustomersTableName}.id`,
-        to: `${OrdersTableName}.customerId`
+  static get relationMappings() {
+    return {
+      [OrdersTableName]: {
+        relation: BaseModel.HasManyRelation,
+        modelClass: Order,
+        join: {
+          from: `${CustomersTableName}.id`,
+          to: `${OrdersTableName}.customerId`
+        }
       }
     }
   }

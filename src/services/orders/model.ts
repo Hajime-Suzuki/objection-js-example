@@ -1,6 +1,5 @@
 import { BaseModel } from '../../database/knex'
 import { OrdersTableName, CustomersTableName } from '../../database/config'
-import { Customer } from '../customers/model'
 
 type OrderStatus =
   | 'payment_pending'
@@ -20,13 +19,16 @@ export class Order extends BaseModel {
     return OrdersTableName
   }
 
-  static relationMappings = {
-    [CustomersTableName]: {
-      relation: BaseModel.BelongsToOneRelation,
-      modelClass: Customer,
-      join: {
-        from: `${OrdersTableName}.customerId`,
-        to: `${CustomersTableName}.id`
+  static get relationMappings() {
+    const { Customer } = require('../customers/model')
+    return {
+      [CustomersTableName]: {
+        relation: BaseModel.BelongsToOneRelation,
+        modelClass: Customer,
+        join: {
+          from: `${OrdersTableName}.customerId`,
+          to: `${CustomersTableName}.id`
+        }
       }
     }
   }
