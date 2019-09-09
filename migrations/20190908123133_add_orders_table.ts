@@ -1,11 +1,11 @@
 import * as Knex from 'knex'
-import { OrdersTableName } from '../src/database/config'
+import { CustomersTableName, OrdersTableName } from '../src/database/config'
 
 export const up = async (knex: Knex): Promise<any> => {
   if (await knex.schema.hasTable(OrdersTableName)) return
   await knex.schema.createTable(OrdersTableName, table => {
     table.increments('id').primary()
-    table.string('customer_id', 50).notNullable()
+    table.integer('customer_id', 50).notNullable()
     table.string('status', 50).defaultTo('payment_pending')
     table.timestamp('completed_at').nullable()
     table
@@ -13,6 +13,10 @@ export const up = async (knex: Knex): Promise<any> => {
       .notNullable()
       .defaultTo(knex.fn.now())
     table.timestamp('updated_at').nullable()
+    table
+      .foreign('customer_id')
+      .references(`${CustomersTableName}.id`)
+      .onDelete('cascade')
   })
 }
 
